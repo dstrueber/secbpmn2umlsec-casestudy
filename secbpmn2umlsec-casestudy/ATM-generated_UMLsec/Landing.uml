@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLsec="http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3" xmlns:RABAC="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xsi:schemaLocation="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0 platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3 platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model>
+    <packagedElement xsi:type="uml:Class" name="RBAC"/>
+    <packagedElement xsi:type="uml:Class" name="Data"/>
+    <packagedElement xsi:type="uml:Class" name="Message">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="ATSU 2">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send land authorization">
+        <ownedParameter name="RBT authorization" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send conflict report">
+        <ownedParameter name="Conflicts info" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Examine landing RBT">
+        <ownedParameter name="obj" type="/0/Landing%20RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Send runway">
+        <ownedParameter name="Runway number and position" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Runway%20number%20and%20position"/>
+      </ownedOperation>
+      <ownedOperation name="Assign runway">
+        <ownedParameter name="obj" type="/0/Runway%20number%20and%20position" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send conflicts"/>
+      <ownedOperation name="Send approval"/>
+      <ownedOperation name="Examine RBT for landing">
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Receive landing RBT">
+        <ownedParameter name="RBT landing" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Landing%20RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive request runway">
+        <ownedParameter name="Request runway" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive RBT for landing">
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="AMAN">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send back queue position">
+        <ownedParameter name="Queue position" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Check queue position">
+        <ownedParameter name="obj" type="/0/Landing%20queue"/>
+      </ownedOperation>
+      <ownedOperation name="Send conformation">
+        <ownedParameter name="Confirmation queue" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="AD FO to the landing queue"/>
+      <ownedOperation name="Examine the RBT">
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Receive request queue position"/>
+      <ownedOperation name="Receive request landing">
+        <ownedParameter name="RBT landing" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="ATSU 1">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send back authorization">
+        <ownedParameter name="RBT authorization" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send back conflicts info">
+        <ownedParameter name="Conflicts info" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Examine RBT to airport">
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Examine RBT">
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive auth request">
+        <ownedParameter name="RBT authorization request" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Flying object">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Start landing procedure"/>
+      <ownedOperation name="Esitimate time for landing"/>
+      <ownedOperation name="Send RBT landing">
+        <ownedParameter name="RBT landing" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Landing%20RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Elaborate landing RBT">
+        <ownedParameter name="obj" type="/0/Runway%20number%20and%20position"/>
+        <ownedParameter name="obj" type="/0/Landing%20RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Start flying in RBT  queue"/>
+      <ownedOperation name="Estimate time to landing">
+        <ownedParameter name="obj" type="/0/Queue%20status"/>
+      </ownedOperation>
+      <ownedOperation name="Request runway">
+        <ownedParameter name="Request runway" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Request position in landing queue"/>
+      <ownedOperation name="Elaborate a new RBT">
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send RBT for landing">
+        <ownedParameter name="RBT landing" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Send landing RBT">
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Estimate time for landing">
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Elaborate new RBT">
+        <ownedParameter name="obj" type="/0/RBT" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send RBT authorization request">
+        <ownedParameter name="RBT authorization request" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/RBT"/>
+      </ownedOperation>
+      <ownedOperation name="Receive confirmation queue">
+        <ownedParameter name="Confirmation queue" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive auth responce">
+        <ownedParameter name="RBT authorization" type="/0/Message"/>
+        <ownedParameter name="Conflicts info" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive response RBT landing">
+        <ownedParameter name="RBT authorization" type="/0/Message"/>
+        <ownedParameter name="Conflicts info" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive responce"/>
+      <ownedOperation name="Receive runway number and position">
+        <ownedParameter name="Runway number and position" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Runway%20number%20and%20position" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receice position">
+        <ownedParameter name="Queue position" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Queue%20status" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Landing queue">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Landing RBT">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Runway number and position">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Queue status">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="RBT">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 2" memberEnd="/0/ATSU%202.1/@ownedEnd.0 /0/ATSU%202.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/ATSU%202.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%202" association="/0/ATSU%202.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="AMAN" memberEnd="/0/AMAN.1/@ownedEnd.0 /0/AMAN.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/AMAN.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/AMAN" association="/0/AMAN.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 1" memberEnd="/0/ATSU%201.1/@ownedEnd.0 /0/ATSU%201.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/ATSU%201.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%201" association="/0/ATSU%201.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Flying object" memberEnd="/0/Flying%20object.1/@ownedEnd.0 /0/Flying%20object.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/Flying%20object.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Flying%20object" association="/0/Flying%20object.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="AMAN_Landing queue" memberEnd="/0/AMAN_Landing%20queue/@ownedEnd.0 /0/AMAN_Landing%20queue/@ownedEnd.1">
+      <ownedEnd type="/0/Landing%20queue" association="/0/AMAN_Landing%20queue">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/AMAN" association="/0/AMAN_Landing%20queue">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Flying object_Landing RBT" memberEnd="/0/Flying%20object_Landing%20RBT/@ownedEnd.0 /0/Flying%20object_Landing%20RBT/@ownedEnd.1">
+      <ownedEnd type="/0/Landing%20RBT" association="/0/Flying%20object_Landing%20RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Flying%20object" association="/0/Flying%20object_Landing%20RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Flying object_Runway number and position" memberEnd="/0/Flying%20object_Runway%20number%20and%20position/@ownedEnd.0 /0/Flying%20object_Runway%20number%20and%20position/@ownedEnd.1">
+      <ownedEnd type="/0/Runway%20number%20and%20position" association="/0/Flying%20object_Runway%20number%20and%20position">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Flying%20object" association="/0/Flying%20object_Runway%20number%20and%20position">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Flying object_Queue status" memberEnd="/0/Flying%20object_Queue%20status/@ownedEnd.0 /0/Flying%20object_Queue%20status/@ownedEnd.1">
+      <ownedEnd type="/0/Queue%20status" association="/0/Flying%20object_Queue%20status">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Flying%20object" association="/0/Flying%20object_Queue%20status">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Flying object_RBT" memberEnd="/0/Flying%20object_RBT/@ownedEnd.0 /0/Flying%20object_RBT/@ownedEnd.1">
+      <ownedEnd type="/0/RBT" association="/0/Flying%20object_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Flying%20object" association="/0/Flying%20object_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 2_Landing RBT" memberEnd="/0/ATSU%202_Landing%20RBT/@ownedEnd.0 /0/ATSU%202_Landing%20RBT/@ownedEnd.1">
+      <ownedEnd type="/0/Landing%20RBT" association="/0/ATSU%202_Landing%20RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%202" association="/0/ATSU%202_Landing%20RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 2_Runway number and position" memberEnd="/0/ATSU%202_Runway%20number%20and%20position/@ownedEnd.0 /0/ATSU%202_Runway%20number%20and%20position/@ownedEnd.1">
+      <ownedEnd type="/0/Runway%20number%20and%20position" association="/0/ATSU%202_Runway%20number%20and%20position">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%202" association="/0/ATSU%202_Runway%20number%20and%20position">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 2_RBT" memberEnd="/0/ATSU%202_RBT/@ownedEnd.0 /0/ATSU%202_RBT/@ownedEnd.1">
+      <ownedEnd type="/0/RBT" association="/0/ATSU%202_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%202" association="/0/ATSU%202_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="AMAN_RBT" memberEnd="/0/AMAN_RBT/@ownedEnd.0 /0/AMAN_RBT/@ownedEnd.1">
+      <ownedEnd type="/0/RBT" association="/0/AMAN_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/AMAN" association="/0/AMAN_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATSU 1_RBT" memberEnd="/0/ATSU%201_RBT/@ownedEnd.0 /0/ATSU%201_RBT/@ownedEnd.1">
+      <ownedEnd type="/0/RBT" association="/0/ATSU%201_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATSU%201" association="/0/ATSU%201_RBT">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="ATSU 1_Flying object" client="/0/ATSU%201" supplier="/0/Flying%20object"/>
+    <packagedElement xsi:type="uml:Dependency" name="AMAN_Flying object" client="/0/AMAN" supplier="/0/Flying%20object"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATSU 2_Flying object" client="/0/ATSU%202" supplier="/0/Flying%20object"/>
+    <packagedElement xsi:type="uml:Dependency" name="Flying object_ATSU 1" client="/0/Flying%20object" supplier="/0/ATSU%201"/>
+    <packagedElement xsi:type="uml:Dependency" name="Flying object_AMAN" client="/0/Flying%20object" supplier="/0/AMAN"/>
+    <packagedElement xsi:type="uml:Dependency" name="Flying object_ATSU 2" client="/0/Flying%20object" supplier="/0/ATSU%202"/>
+    <packagedElement xsi:type="uml:Node" name="ATSU 2-Subsystem">
+      <deployment client="/0/ATSU%202-Subsystem" supplier="/0/ATSU%202%20Process_Application" deployedArtifact="/0/ATSU%202%20Process_Application"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATSU 2 Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="AMAN-Subsystem">
+      <deployment client="/0/AMAN-Subsystem" supplier="/0/AMAN%20Process_Application" deployedArtifact="/0/AMAN%20Process_Application"/>
+      <deployment client="/0/AMAN-Subsystem" supplier="/0/Landing%20queue_Database" deployedArtifact="/0/Landing%20queue_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="AMAN Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="ATSU 1-Subsystem">
+      <deployment client="/0/ATSU%201-Subsystem" supplier="/0/Pool%203%20Process_Application" deployedArtifact="/0/Pool%203%20Process_Application"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Pool 3 Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Flying object-Subsystem">
+      <ownedAttribute type="/0/ATSU%202-Subsystem" association="/0/Flying%20object-Subsystem_ATSU%202-Subsystem"/>
+      <ownedAttribute type="/0/AMAN-Subsystem" association="/0/Flying%20object-Subsystem_AMAN-Subsystem"/>
+      <ownedAttribute type="/0/ATSU%201-Subsystem" association="/0/Flying%20object-Subsystem_ATSU%201-Subsystem"/>
+      <deployment client="/0/Flying%20object-Subsystem" supplier="/0/Pool%202%20Process_Application" deployedArtifact="/0/Pool%202%20Process_Application"/>
+      <deployment client="/0/Flying%20object-Subsystem" supplier="/0/Landing%20RBT_Database" deployedArtifact="/0/Landing%20RBT_Database"/>
+      <deployment client="/0/Flying%20object-Subsystem" supplier="/0/Runway%20number%20and%20position_Database" deployedArtifact="/0/Runway%20number%20and%20position_Database"/>
+      <deployment client="/0/Flying%20object-Subsystem" supplier="/0/Queue%20status_Database" deployedArtifact="/0/Queue%20status_Database"/>
+      <deployment client="/0/Flying%20object-Subsystem" supplier="/0/RBT_Database" deployedArtifact="/0/RBT_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Pool 2 Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Flying object_Client">
+      <ownedAttribute type="/0/Flying%20object-Subsystem" association="/0/Flying%20object_Client_Flying%20object-Subsystem"/>
+      <deployment client="/0/Flying%20object_Client" supplier="/0/Flying%20object_GUI" deployedArtifact="/0/Flying%20object_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Flying object_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="ATSU 1_Client">
+      <ownedAttribute type="/0/ATSU%201-Subsystem" association="/0/ATSU%201_Client_ATSU%201-Subsystem"/>
+      <deployment client="/0/ATSU%201_Client" supplier="/0/ATSU%201_GUI" deployedArtifact="/0/ATSU%201_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATSU 1_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="AMAN_Client">
+      <ownedAttribute type="/0/AMAN-Subsystem" association="/0/AMAN_Client_AMAN-Subsystem"/>
+      <deployment client="/0/AMAN_Client" supplier="/0/AMAN_GUI" deployedArtifact="/0/AMAN_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="AMAN_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="ATSU 2_Client">
+      <ownedAttribute type="/0/ATSU%202-Subsystem" association="/0/ATSU%202_Client_ATSU%202-Subsystem"/>
+      <deployment client="/0/ATSU%202_Client" supplier="/0/ATSU%202_GUI" deployedArtifact="/0/ATSU%202_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATSU 2_GUI"/>
+    <packagedElement xsi:type="uml:Artifact" name="Landing queue_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Landing RBT_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Runway number and position_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Queue status_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="RBT_Database"/>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATSU 2_Client_ATSU 2-Subsystem" memberEnd="/0/ATSU%202_Client/@ownedAttribute.0 /0/ATSU%202_Client_ATSU%202-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATSU%202_Client" association="/0/ATSU%202_Client_ATSU%202-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="AMAN_Client_AMAN-Subsystem" memberEnd="/0/AMAN_Client/@ownedAttribute.0 /0/AMAN_Client_AMAN-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/AMAN_Client" association="/0/AMAN_Client_AMAN-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATSU 1_Client_ATSU 1-Subsystem" memberEnd="/0/ATSU%201_Client/@ownedAttribute.0 /0/ATSU%201_Client_ATSU%201-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATSU%201_Client" association="/0/ATSU%201_Client_ATSU%201-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Flying object_Client_Flying object-Subsystem" memberEnd="/0/Flying%20object_Client/@ownedAttribute.0 /0/Flying%20object_Client_Flying%20object-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Flying%20object_Client" association="/0/Flying%20object_Client_Flying%20object-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Flying object-Subsystem_ATSU 2-Subsystem" memberEnd="/0/Flying%20object-Subsystem/@ownedAttribute.0 /0/Flying%20object-Subsystem_ATSU%202-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Flying%20object-Subsystem" association="/0/Flying%20object-Subsystem_ATSU%202-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Flying object-Subsystem_AMAN-Subsystem" memberEnd="/0/Flying%20object-Subsystem/@ownedAttribute.1 /0/Flying%20object-Subsystem_AMAN-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Flying%20object-Subsystem" association="/0/Flying%20object-Subsystem_AMAN-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Flying object-Subsystem_ATSU 1-Subsystem" memberEnd="/0/Flying%20object-Subsystem/@ownedAttribute.2 /0/Flying%20object-Subsystem_ATSU%201-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Flying%20object-Subsystem" association="/0/Flying%20object-Subsystem_ATSU%201-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="ATSU 2 Process_Application_Pool 2 Process_Application" client="/0/Pool%202%20Process_Application" supplier="/0/ATSU%202%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="AMAN Process_Application_Pool 2 Process_Application" client="/0/Pool%202%20Process_Application" supplier="/0/AMAN%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 3 Process_Application_Pool 2 Process_Application" client="/0/Pool%202%20Process_Application" supplier="/0/Pool%203%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 2 Process_Application_ATSU 2 Process_Application" client="/0/ATSU%202%20Process_Application" supplier="/0/Pool%202%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 2 Process_Application_AMAN Process_Application" client="/0/AMAN%20Process_Application" supplier="/0/Pool%202%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 2 Process_Application_Pool 3 Process_Application" client="/0/Pool%203%20Process_Application" supplier="/0/Pool%202%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATSU 2_GUI_ATSU 2 Process_Application" client="/0/ATSU%202_GUI" supplier="/0/ATSU%202%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="AMAN_GUI_AMAN Process_Application" client="/0/AMAN_GUI" supplier="/0/AMAN%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATSU 1_GUI_Pool 3 Process_Application" client="/0/ATSU%201_GUI" supplier="/0/Pool%203%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Flying object_GUI_Pool 2 Process_Application" client="/0/Flying%20object_GUI" supplier="/0/Pool%202%20Process_Application"/>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_DhVN4LhMEeSB1MgAxQm9IQ"/>
+    </profileApplication>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_kGQWQDnkEeCyb9nmG-9Lpw"/>
+    </profileApplication>
+  </uml:Model>
+  <RABAC:abac roles="{(Subject,ATSU 2),(Subject,AMAN),(Subject,ATSU 1),(Subject,Flying object),}" base_Class="/0/RBAC"/>
+  <UMLsec:securedependency base_Package="/0"/>
+  <UMLsec:securelinks adversary="default" base_Package="/0"/>
+  <RABAC:abacRequire right="access_Send approval" base_Operation="/0/ATSU%202/Send%20approval"/>
+  <RABAC:abacRequire right="modify_RBT authorization , access_Send land authorization" base_Operation="/0/ATSU%202/Send%20land%20authorization"/>
+  <RABAC:abacRequire right="modify_RBT landing , read_RBT landing" base_Operation="/0/Flying%20object/Send%20RBT%20landing"/>
+  <RABAC:abacRequire right="modify_Runway number and position , read_Runway number and position , access_Send runway" base_Operation="/0/ATSU%202/Send%20runway"/>
+  <RABAC:abacRequire right="modify_Queue position" base_Operation="/0/AMAN/Send%20back%20queue%20position"/>
+  <RABAC:abacRequire right="modify_Confirmation queue , access_Send conformation" base_Operation="/0/AMAN/Send%20conformation"/>
+  <RABAC:abacRequire right="modify_RBT landing , read_RBT landing" base_Operation="/0/Flying%20object/Send%20RBT%20for%20landing"/>
+  <RABAC:abacRequire right="modify_RBT authorization , read_RBT authorization , access_Send back authorization" base_Operation="/0/ATSU%201/Send%20back%20authorization"/>
+  <RABAC:abacRequire right="modify_Conflicts info" base_Operation="/0/ATSU%201/Send%20back%20conflicts%20info"/>
+  <RABAC:abacRequire right="modify_RBT authorization request , read_RBT authorization request" base_Operation="/0/Flying%20object/Send%20RBT%20authorization%20request"/>
+  <UMLsec:secrecy base_Dependency="/0/ATSU%202_Flying%20object"/>
+  <UMLsec:secrecy base_Dependency="/0/Flying%20object_ATSU%202"/>
+  <UMLsec:secrecy base_Dependency="/0/AMAN_Flying%20object"/>
+  <UMLsec:secrecy base_Dependency="/0/Flying%20object_ATSU%201"/>
+  <UMLsec:secrecy base_Dependency="/0/ATSU%201_Flying%20object"/>
+  <UMLsec:integrity base_Dependency="/0/Flying%20object_ATSU%202"/>
+  <UMLsec:integrity base_Dependency="/0/ATSU%202_Flying%20object"/>
+  <UMLsec:integrity base_Dependency="/0/Flying%20object_AMAN"/>
+  <UMLsec:integrity base_Dependency="/0/AMAN_Flying%20object"/>
+  <UMLsec:integrity base_Dependency="/0/Flying%20object_ATSU%201"/>
+  <UMLsec:integrity base_Dependency="/0/ATSU%201_Flying%20object"/>
+  <UMLsec:call base_Dependency="/0/Flying%20object_ATSU%202"/>
+  <UMLsec:call base_Dependency="/0/Flying%20object_AMAN"/>
+  <UMLsec:call base_Dependency="/0/Flying%20object_ATSU%201"/>
+  <UMLsec:call base_Dependency="/0/ATSU%202_Flying%20object"/>
+  <UMLsec:call base_Dependency="/0/AMAN_Flying%20object"/>
+  <UMLsec:call base_Dependency="/0/ATSU%201_Flying%20object"/>
+  <UMLsec:critical base_Class="/0/Flying%20object" base_Classifier="/0/Flying%20object">
+    <secrecy>Send runway</secrecy>
+    <secrecy>Send back authorization</secrecy>
+    <secrecy>Send RBT landing</secrecy>
+    <secrecy>Send RBT for landing</secrecy>
+    <secrecy>Send RBT authorization request</secrecy>
+    <integrity>Send runway</integrity>
+    <integrity>Send land authorization</integrity>
+    <integrity>Send back queue position</integrity>
+    <integrity>Send conformation</integrity>
+    <integrity>Send back conflicts info</integrity>
+    <integrity>Send back authorization</integrity>
+    <integrity>Send RBT landing</integrity>
+    <integrity>Send RBT for landing</integrity>
+    <integrity>Send RBT authorization request</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/ATSU%202" base_Classifier="/0/ATSU%202">
+    <secrecy>Send RBT landing</secrecy>
+    <secrecy>Send runway</secrecy>
+    <integrity>Send RBT landing</integrity>
+    <integrity>Send runway</integrity>
+    <integrity>Send land authorization</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/AMAN" base_Classifier="/0/AMAN">
+    <secrecy>Send RBT for landing</secrecy>
+    <integrity>Send RBT for landing</integrity>
+    <integrity>Send back queue position</integrity>
+    <integrity>Send conformation</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/ATSU%201" base_Classifier="/0/ATSU%201">
+    <secrecy>Send RBT authorization request</secrecy>
+    <secrecy>Send back authorization</secrecy>
+    <integrity>Send RBT authorization request</integrity>
+    <integrity>Send back conflicts info</integrity>
+    <integrity>Send back authorization</integrity>
+  </UMLsec:critical>
+  <UMLsec:encrypted base_CommunicationPath="/0/Flying%20object-Subsystem_ATSU%202-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Flying%20object-Subsystem_AMAN-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Flying%20object-Subsystem_ATSU%201-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATSU%202_Client_ATSU%202-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/AMAN_Client_AMAN-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATSU%201_Client_ATSU%201-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Flying%20object_Client_Flying%20object-Subsystem"/>
+  <UMLsec:call base_Dependency="/0/ATSU%202%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/AMAN%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%203%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%202%20Process_Application_ATSU%202%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%202%20Process_Application_AMAN%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%202%20Process_Application_Pool%203%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/ATSU%202_GUI_ATSU%202%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/AMAN_GUI_AMAN%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/ATSU%201_GUI_Pool%203%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Flying%20object_GUI_Pool%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Flying%20object_GUI_Pool%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/ATSU%202_GUI_ATSU%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Pool%202%20Process_Application_ATSU%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/ATSU%202%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/AMAN_GUI_AMAN%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Pool%202%20Process_Application_AMAN%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/ATSU%201_GUI_Pool%203%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Pool%203%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Pool%202%20Process_Application_Pool%203%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATSU%202_GUI_ATSU%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Flying%20object_GUI_Pool%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATSU%202%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%202%20Process_Application_ATSU%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/AMAN_GUI_AMAN%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/AMAN%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%202%20Process_Application_AMAN%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATSU%201_GUI_Pool%203%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%203%20Process_Application_Pool%202%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%202%20Process_Application_Pool%203%20Process_Application"/>
+</xmi:XMI>

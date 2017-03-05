@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLsec="http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3" xmlns:RABAC="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xsi:schemaLocation="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0 platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3 platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model>
+    <packagedElement xsi:type="uml:Class" name="RBAC"/>
+    <packagedElement xsi:type="uml:Class" name="Data"/>
+    <packagedElement xsi:type="uml:Class" name="Message">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="SWIM">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Publish service descriptor">
+        <ownedParameter name="obj" type="/0/SWIM%20service%20dscriptor"/>
+      </ownedOperation>
+      <ownedOperation name="Generate SWIM service descriptor">
+        <ownedParameter name="obj" type="/0/SWIM%20service%20dscriptor" direction="out"/>
+        <ownedParameter name="obj" type="/0/Atm%20service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 4">
+        <ownedParameter name="Service description" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Atm%20service%20description" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="ATM service provider">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send ATM service">
+        <ownedParameter name="Service description" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Atm%20service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Generate ATM service">
+        <ownedParameter name="obj" type="/0/Atm%20service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Register ATM service">
+        <ownedParameter name="obj" type="/0/Accreditation"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 3">
+        <ownedParameter name="Accreditation" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Accreditation" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="SWIM governance">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send accreditation to ATM SP">
+        <ownedParameter name="Accreditation" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send accreditation to INMSP">
+        <ownedParameter name="Accreditation" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Accreditation"/>
+      </ownedOperation>
+      <ownedOperation name="Accreditate ATM Service Description">
+        <ownedParameter name="obj" type="/0/Accreditation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Create authentication certificate">
+        <ownedParameter name="obj" type="/0/Accreditation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Assign default value">
+        <ownedParameter name="obj" type="/0/Accreditation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Update value trust">
+        <ownedParameter name="obj" type="/0/Accreditation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send failure report">
+        <ownedParameter name="Failure report" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Examine request">
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 2">
+        <ownedParameter name="Accreditation request" type="/0/Message"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Italian NMSP">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Store accreditation">
+        <ownedParameter name="obj" type="/0/Accreditation"/>
+      </ownedOperation>
+      <ownedOperation name="Tune QoS">
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Manage faliure report"/>
+      <ownedOperation name="Examine report">
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Send accreditation request">
+        <ownedParameter name="Accreditation request" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="receive failure/accreditaion">
+        <ownedParameter name="Accreditation" type="/0/Message"/>
+        <ownedParameter name="Failure report" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="SWIM service dscriptor">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Atm service description">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Failure report">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Accreditation">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider" memberEnd="/0/ATM%20service%20provider.1/@ownedEnd.0 /0/ATM%20service%20provider.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/ATM%20service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance" memberEnd="/0/SWIM%20governance.1/@ownedEnd.0 /0/SWIM%20governance.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/SWIM%20governance.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Italian NMSP" memberEnd="/0/Italian%20NMSP.1/@ownedEnd.0 /0/Italian%20NMSP.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/Italian%20NMSP.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Italian%20NMSP" association="/0/Italian%20NMSP.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM" memberEnd="/0/SWIM.1/@ownedEnd.0 /0/SWIM.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/SWIM.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_SWIM service dscriptor" memberEnd="/0/SWIM_SWIM%20service%20dscriptor/@ownedEnd.0 /0/SWIM_SWIM%20service%20dscriptor/@ownedEnd.1">
+      <ownedEnd type="/0/SWIM%20service%20dscriptor" association="/0/SWIM_SWIM%20service%20dscriptor">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_SWIM%20service%20dscriptor">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_Atm service description" memberEnd="/0/ATM%20service%20provider_Atm%20service%20description/@ownedEnd.0 /0/ATM%20service%20provider_Atm%20service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Atm%20service%20description" association="/0/ATM%20service%20provider_Atm%20service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_Atm%20service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Italian NMSP_Failure report" memberEnd="/0/Italian%20NMSP_Failure%20report/@ownedEnd.0 /0/Italian%20NMSP_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/Italian%20NMSP_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Italian%20NMSP" association="/0/Italian%20NMSP_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Italian NMSP_Accreditation" memberEnd="/0/Italian%20NMSP_Accreditation/@ownedEnd.0 /0/Italian%20NMSP_Accreditation/@ownedEnd.1">
+      <ownedEnd type="/0/Accreditation" association="/0/Italian%20NMSP_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Italian%20NMSP" association="/0/Italian%20NMSP_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_Atm service description" memberEnd="/0/SWIM_Atm%20service%20description/@ownedEnd.0 /0/SWIM_Atm%20service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Atm%20service%20description" association="/0/SWIM_Atm%20service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_Atm%20service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_Failure report" memberEnd="/0/SWIM%20governance_Failure%20report/@ownedEnd.0 /0/SWIM%20governance_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/SWIM%20governance_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_Accreditation" memberEnd="/0/ATM%20service%20provider_Accreditation/@ownedEnd.0 /0/ATM%20service%20provider_Accreditation/@ownedEnd.1">
+      <ownedEnd type="/0/Accreditation" association="/0/ATM%20service%20provider_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_Accreditation" memberEnd="/0/SWIM%20governance_Accreditation/@ownedEnd.0 /0/SWIM%20governance_Accreditation/@ownedEnd.1">
+      <ownedEnd type="/0/Accreditation" association="/0/SWIM%20governance_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_Accreditation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider_SWIM governance" client="/0/ATM%20service%20provider" supplier="/0/SWIM%20governance"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM_ATM service provider" client="/0/SWIM" supplier="/0/ATM%20service%20provider"/>
+    <packagedElement xsi:type="uml:Dependency" name="Italian NMSP_SWIM governance" client="/0/Italian%20NMSP" supplier="/0/SWIM%20governance"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM-Subsystem">
+      <deployment client="/0/SWIM-Subsystem" supplier="/0/SWIM%20Process_Application" deployedArtifact="/0/SWIM%20Process_Application"/>
+      <deployment client="/0/SWIM-Subsystem" supplier="/0/SWIM%20service%20dscriptor_Database" deployedArtifact="/0/SWIM%20service%20dscriptor_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="ATM service provider-Subsystem">
+      <ownedAttribute type="/0/SWIM-Subsystem" association="/0/ATM%20service%20provider-Subsystem_SWIM-Subsystem"/>
+      <ownedAttribute type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+      <deployment client="/0/ATM%20service%20provider-Subsystem" supplier="/0/Pool%204%20Process_Application" deployedArtifact="/0/Pool%204%20Process_Application"/>
+      <deployment client="/0/ATM%20service%20provider-Subsystem" supplier="/0/Atm%20service%20description_Database" deployedArtifact="/0/Atm%20service%20description_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Pool 4 Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM governance-Subsystem">
+      <deployment client="/0/SWIM%20governance-Subsystem" supplier="/0/SWIM%20governance%20Process_Application" deployedArtifact="/0/SWIM%20governance%20Process_Application"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM governance Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Italian NMSP-Subsystem">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/Italian%20NMSP-Subsystem_ATM%20service%20provider-Subsystem"/>
+      <ownedAttribute type="/0/SWIM%20governance-Subsystem" association="/0/Italian%20NMSP-Subsystem_SWIM%20governance-Subsystem"/>
+      <deployment client="/0/Italian%20NMSP-Subsystem" supplier="/0/Italian%20NMSP%20Process_Application" deployedArtifact="/0/Italian%20NMSP%20Process_Application"/>
+      <deployment client="/0/Italian%20NMSP-Subsystem" supplier="/0/Failure%20report_Database" deployedArtifact="/0/Failure%20report_Database"/>
+      <deployment client="/0/Italian%20NMSP-Subsystem" supplier="/0/Accreditation_Database" deployedArtifact="/0/Accreditation_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Italian NMSP Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Italian NMSP_Client">
+      <ownedAttribute type="/0/Italian%20NMSP-Subsystem" association="/0/Italian%20NMSP_Client_Italian%20NMSP-Subsystem"/>
+      <deployment client="/0/Italian%20NMSP_Client" supplier="/0/Italian%20NMSP_GUI" deployedArtifact="/0/Italian%20NMSP_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Italian NMSP_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM governance_Client">
+      <ownedAttribute type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+      <deployment client="/0/SWIM%20governance_Client" supplier="/0/SWIM%20governance_GUI" deployedArtifact="/0/SWIM%20governance_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM governance_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="ATM service provider_Client">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+      <deployment client="/0/ATM%20service%20provider_Client" supplier="/0/ATM%20service%20provider_GUI" deployedArtifact="/0/ATM%20service%20provider_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATM service provider_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM_Client">
+      <ownedAttribute type="/0/SWIM-Subsystem" association="/0/SWIM_Client_SWIM-Subsystem"/>
+      <deployment client="/0/SWIM_Client" supplier="/0/SWIM_GUI" deployedArtifact="/0/SWIM_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM_GUI"/>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM service dscriptor_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Atm service description_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Failure report_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Accreditation_Database"/>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM_Client_SWIM-Subsystem" memberEnd="/0/SWIM_Client/@ownedAttribute.0 /0/SWIM_Client_SWIM-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM_Client" association="/0/SWIM_Client_SWIM-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATM service provider_Client_ATM service provider-Subsystem" memberEnd="/0/ATM%20service%20provider_Client/@ownedAttribute.0 /0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATM%20service%20provider_Client" association="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance_Client_SWIM governance-Subsystem" memberEnd="/0/SWIM%20governance_Client/@ownedAttribute.0 /0/SWIM%20governance_Client_SWIM%20governance-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance_Client" association="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Italian NMSP_Client_Italian NMSP-Subsystem" memberEnd="/0/Italian%20NMSP_Client/@ownedAttribute.0 /0/Italian%20NMSP_Client_Italian%20NMSP-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Italian%20NMSP_Client" association="/0/Italian%20NMSP_Client_Italian%20NMSP-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATM service provider-Subsystem_SWIM-Subsystem" memberEnd="/0/ATM%20service%20provider-Subsystem/@ownedAttribute.0 /0/ATM%20service%20provider-Subsystem_SWIM-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATM%20service%20provider-Subsystem" association="/0/ATM%20service%20provider-Subsystem_SWIM-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Italian NMSP-Subsystem_ATM service provider-Subsystem" memberEnd="/0/Italian%20NMSP-Subsystem/@ownedAttribute.0 /0/Italian%20NMSP-Subsystem_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Italian%20NMSP-Subsystem" association="/0/Italian%20NMSP-Subsystem_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Italian NMSP-Subsystem_SWIM governance-Subsystem" memberEnd="/0/Italian%20NMSP-Subsystem/@ownedAttribute.1 /0/Italian%20NMSP-Subsystem_SWIM%20governance-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Italian%20NMSP-Subsystem" association="/0/Italian%20NMSP-Subsystem_SWIM%20governance-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance-Subsystem_ATM service provider-Subsystem" memberEnd="/0/ATM%20service%20provider-Subsystem/@ownedAttribute.1 /0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATM%20service%20provider-Subsystem" association="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 4 Process_Application_SWIM Process_Application" client="/0/SWIM%20Process_Application" supplier="/0/Pool%204%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance Process_Application_Pool 4 Process_Application" client="/0/Pool%204%20Process_Application" supplier="/0/SWIM%20governance%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance Process_Application_Italian NMSP Process_Application" client="/0/Italian%20NMSP%20Process_Application" supplier="/0/SWIM%20governance%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM_GUI_SWIM Process_Application" client="/0/SWIM_GUI" supplier="/0/SWIM%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider_GUI_Pool 4 Process_Application" client="/0/ATM%20service%20provider_GUI" supplier="/0/Pool%204%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Italian NMSP_GUI_Italian NMSP Process_Application" client="/0/Italian%20NMSP_GUI" supplier="/0/Italian%20NMSP%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance_GUI_SWIM governance Process_Application" client="/0/SWIM%20governance_GUI" supplier="/0/SWIM%20governance%20Process_Application"/>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_DhVN4LhMEeSB1MgAxQm9IQ"/>
+    </profileApplication>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_kGQWQDnkEeCyb9nmG-9Lpw"/>
+    </profileApplication>
+  </uml:Model>
+  <RABAC:abac roles="{(Subject,SWIM),(Subject,ATM service provider),(Subject,SWIM governance),(Subject,Italian NMSP),}" base_Class="/0/RBAC"/>
+  <UMLsec:securedependency base_Package="/0"/>
+  <UMLsec:securelinks adversary="default" base_Package="/0"/>
+  <RABAC:abacRequire right="access_Generate SWIM service descriptor" base_Operation="/0/SWIM/Generate%20SWIM%20service%20descriptor"/>
+  <RABAC:abacRequire right="access_Create authentication certificate" base_Operation="/0/SWIM%20governance/Create%20authentication%20certificate"/>
+  <RABAC:abacRequire right="modify_Service description" base_Operation="/0/ATM%20service%20provider/Send%20ATM%20service"/>
+  <RABAC:abacRequire right="modify_Accreditation , read_Accreditation" base_Operation="/0/SWIM%20governance/Send%20accreditation%20to%20ATM%20SP"/>
+  <RABAC:abacRequire right="modify_Accreditation , read_Accreditation" base_Operation="/0/SWIM%20governance/Send%20accreditation%20to%20INMSP"/>
+  <RABAC:abacRequire right="modify_Failure report , access_Send failure report" base_Operation="/0/SWIM%20governance/Send%20failure%20report"/>
+  <UMLsec:secrecy base_Dependency="/0/ATM%20service%20provider_SWIM%20governance"/>
+  <UMLsec:secrecy base_Dependency="/0/Italian%20NMSP_SWIM%20governance"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM_ATM%20service%20provider"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider_SWIM%20governance"/>
+  <UMLsec:integrity base_Dependency="/0/Italian%20NMSP_SWIM%20governance"/>
+  <UMLsec:call base_Dependency="/0/SWIM_ATM%20service%20provider"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider_SWIM%20governance"/>
+  <UMLsec:call base_Dependency="/0/Italian%20NMSP_SWIM%20governance"/>
+  <UMLsec:critical base_Class="/0/ATM%20service%20provider" base_Classifier="/0/ATM%20service%20provider">
+    <secrecy>Send accreditation to ATM SP</secrecy>
+    <integrity>Send accreditation to ATM SP</integrity>
+    <integrity>Send ATM service</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/Italian%20NMSP" base_Classifier="/0/Italian%20NMSP">
+    <secrecy>Send accreditation to INMSP</secrecy>
+    <integrity>Send accreditation to INMSP</integrity>
+    <integrity>Send failure report</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/SWIM%20governance" base_Classifier="/0/SWIM%20governance">
+    <secrecy>Send accreditation to ATM SP</secrecy>
+    <secrecy>Send accreditation to INMSP</secrecy>
+    <integrity>Send accreditation to ATM SP</integrity>
+    <integrity>Send accreditation to INMSP</integrity>
+    <integrity>Send failure report</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/SWIM" base_Classifier="/0/SWIM">
+    <integrity>Send ATM service</integrity>
+  </UMLsec:critical>
+  <UMLsec:Internet base_CommunicationPath="/0/Italian%20NMSP-Subsystem_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATM%20service%20provider-Subsystem_SWIM-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Italian%20NMSP-Subsystem_SWIM%20governance-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM_Client_SWIM-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Italian%20NMSP_Client_Italian%20NMSP-Subsystem"/>
+  <UMLsec:call base_Dependency="/0/Pool%204%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance%20Process_Application_Pool%204%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance%20Process_Application_Italian%20NMSP%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM_GUI_SWIM%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider_GUI_Pool%204%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Italian%20NMSP_GUI_Italian%20NMSP%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/ATM%20service%20provider_GUI_Pool%204%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM%20governance%20Process_Application_Pool%204%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Italian%20NMSP_GUI_Italian%20NMSP%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM%20governance%20Process_Application_Italian%20NMSP%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider_GUI_Pool%204%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM_GUI_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%204%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance%20Process_Application_Pool%204%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Italian%20NMSP_GUI_Italian%20NMSP%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance%20Process_Application_Italian%20NMSP%20Process_Application"/>
+</xmi:XMI>

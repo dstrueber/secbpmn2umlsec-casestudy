@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLsec="http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3" xmlns:RABAC="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xsi:schemaLocation="http:///schemas/RABAC/_7YYbEAa-EeWwtKn7NAM2pQ/0 platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ http:///schemas/UMLsec/_C2YE4E8dEeaXAd2ou1VF_w/3 platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model>
+    <packagedElement xsi:type="uml:Class" name="RBAC"/>
+    <packagedElement xsi:type="uml:Class" name="Data"/>
+    <packagedElement xsi:type="uml:Class" name="Message">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="SWIM governance">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Sends failure report">
+        <ownedParameter name="Failure report" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Create failure report">
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Remove service from list available services">
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Decrease trust level"/>
+      <ownedOperation name="Upgrade trust"/>
+      <ownedOperation name="Examine evaluation">
+        <ownedParameter name="obj" type="/0/Service%20evaluation"/>
+      </ownedOperation>
+      <ownedOperation name="Delete service from list available services">
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Evaluate trust">
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Decrease trust">
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+        <ownedParameter name="obj" type="/0/Service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 6">
+        <ownedParameter name="Service evaluation" type="/0/Message"/>
+        <ownedParameter name="ID service" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="ATM service provider">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Forward evaluation information">
+        <ownedParameter name="Service evaluation" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation"/>
+      </ownedOperation>
+      <ownedOperation name="Forward service">
+        <ownedParameter name="Service description" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Request service">
+        <ownedParameter name="Service request" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send report of failure">
+        <ownedParameter name="Failure report" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Generate report of failure">
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Notify choice">
+        <ownedParameter name="ID service" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/ID%20service"/>
+      </ownedOperation>
+      <ownedOperation name="Chose another service from the list">
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+      </ownedOperation>
+      <ownedOperation name="Check services status">
+        <ownedParameter name="obj" type="/0/ID%20service"/>
+      </ownedOperation>
+      <ownedOperation name="Send list available services">
+        <ownedParameter name="List of services" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+      </ownedOperation>
+      <ownedOperation name="Research services">
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 5">
+        <ownedParameter name="Request" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive service evaluation">
+        <ownedParameter name="Service evaluation" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receives information on service">
+        <ownedParameter name="Service description" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive info about service">
+        <ownedParameter name="ID service" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/ID%20service" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Service provider">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Send information on service">
+        <ownedParameter name="Service description" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Produce service">
+        <ownedParameter name="obj" type="/0/Service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Manage report of failure">
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 3">
+        <ownedParameter name="Failure report" type="/0/Message"/>
+        <ownedParameter name="Service request" type="/0/Message"/>
+        <ownedParameter name="Failure report" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="SWIM">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Forward evaluation">
+        <ownedParameter name="Service evaluation" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation"/>
+      </ownedOperation>
+      <ownedOperation name="Forward generated info">
+        <ownedParameter name="Service description" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Forward to ATM service provider">
+        <ownedParameter name="ID service" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/ID%20service"/>
+      </ownedOperation>
+      <ownedOperation name="Manage failure report">
+        <ownedParameter name="obj" type="/0/ID%20service"/>
+      </ownedOperation>
+      <ownedOperation name="Forward list of services">
+        <ownedParameter name="List of services" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+      </ownedOperation>
+      <ownedOperation name="Forward request to ATM">
+        <ownedParameter name="Request" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Start Event 2">
+        <ownedParameter name="Service request" type="/0/Message"/>
+      </ownedOperation>
+      <ownedOperation name="Receive evaluation">
+        <ownedParameter name="Service evaluation" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive information on service">
+        <ownedParameter name="Service description" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive  services info">
+        <ownedParameter name="Subsecription service" type="/0/Message"/>
+        <ownedParameter name="Failure report" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/ID%20service" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive list services">
+        <ownedParameter name="List of services" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Service consumer">
+      <generalization general="/0/RBAC"/>
+      <ownedOperation name="Remove service from list available">
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="send evaluation">
+        <ownedParameter name="Service evaluation" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Service%20evaluation"/>
+      </ownedOperation>
+      <ownedOperation name="Evaluate service">
+        <ownedParameter name="obj" type="/0/Service%20evaluation" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Consume service"/>
+      <ownedOperation name="Analyze service information">
+        <ownedParameter name="obj" type="/0/Service%20description"/>
+      </ownedOperation>
+      <ownedOperation name="Send subscription of chosen service">
+        <ownedParameter name="Subsecription service" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Send failure report">
+        <ownedParameter name="Failure report" type="/0/Message" direction="out"/>
+        <ownedParameter name="obj" type="/0/Failure%20report"/>
+      </ownedOperation>
+      <ownedOperation name="Evaluate service price">
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Generate failure report">
+        <ownedParameter name="obj" type="/0/Failure%20report" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="chose best service">
+        <ownedParameter name="obj" type="/0/List%20of%20services"/>
+      </ownedOperation>
+      <ownedOperation name="Send request of service">
+        <ownedParameter name="Service request" type="/0/Message" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive service info">
+        <ownedParameter name="Service description" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/Service%20description" direction="out"/>
+      </ownedOperation>
+      <ownedOperation name="Receive list of services">
+        <ownedParameter name="List of services" type="/0/Message"/>
+        <ownedParameter name="obj" type="/0/List%20of%20services" direction="out"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Service description">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="ID service">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Service evaluation">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="Failure report">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Class" name="List of services">
+      <generalization general="/0/Data"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance" memberEnd="/0/SWIM%20governance.1/@ownedEnd.0 /0/SWIM%20governance.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/SWIM%20governance.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider" memberEnd="/0/ATM%20service%20provider.1/@ownedEnd.0 /0/ATM%20service%20provider.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/ATM%20service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service provider" memberEnd="/0/Service%20provider.1/@ownedEnd.0 /0/Service%20provider.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/Service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20provider" association="/0/Service%20provider.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM" memberEnd="/0/SWIM.1/@ownedEnd.0 /0/SWIM.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/SWIM.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service consumer" memberEnd="/0/Service%20consumer.1/@ownedEnd.0 /0/Service%20consumer.1/@ownedEnd.1">
+      <ownedEnd type="/0/Message" association="/0/Service%20consumer.1">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20consumer" association="/0/Service%20consumer.1">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_Service description" memberEnd="/0/SWIM%20governance_Service%20description/@ownedEnd.0 /0/SWIM%20governance_Service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20description" association="/0/SWIM%20governance_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_ID service" memberEnd="/0/SWIM_ID%20service/@ownedEnd.0 /0/SWIM_ID%20service/@ownedEnd.1">
+      <ownedEnd type="/0/ID%20service" association="/0/SWIM_ID%20service">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_ID%20service">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service consumer_Service evaluation" memberEnd="/0/Service%20consumer_Service%20evaluation/@ownedEnd.0 /0/Service%20consumer_Service%20evaluation/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20evaluation" association="/0/Service%20consumer_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20consumer" association="/0/Service%20consumer_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service consumer_Failure report" memberEnd="/0/Service%20consumer_Failure%20report/@ownedEnd.0 /0/Service%20consumer_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/Service%20consumer_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20consumer" association="/0/Service%20consumer_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service consumer_List of services" memberEnd="/0/Service%20consumer_List%20of%20services/@ownedEnd.0 /0/Service%20consumer_List%20of%20services/@ownedEnd.1">
+      <ownedEnd type="/0/List%20of%20services" association="/0/Service%20consumer_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20consumer" association="/0/Service%20consumer_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_Service description" memberEnd="/0/ATM%20service%20provider_Service%20description/@ownedEnd.0 /0/ATM%20service%20provider_Service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20description" association="/0/ATM%20service%20provider_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service provider_Service description" memberEnd="/0/Service%20provider_Service%20description/@ownedEnd.0 /0/Service%20provider_Service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20description" association="/0/Service%20provider_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20provider" association="/0/Service%20provider_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_Service description" memberEnd="/0/SWIM_Service%20description/@ownedEnd.0 /0/SWIM_Service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20description" association="/0/SWIM_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service consumer_Service description" memberEnd="/0/Service%20consumer_Service%20description/@ownedEnd.0 /0/Service%20consumer_Service%20description/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20description" association="/0/Service%20consumer_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20consumer" association="/0/Service%20consumer_Service%20description">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_ID service" memberEnd="/0/ATM%20service%20provider_ID%20service/@ownedEnd.0 /0/ATM%20service%20provider_ID%20service/@ownedEnd.1">
+      <ownedEnd type="/0/ID%20service" association="/0/ATM%20service%20provider_ID%20service">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_ID%20service">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_Service evaluation" memberEnd="/0/SWIM%20governance_Service%20evaluation/@ownedEnd.0 /0/SWIM%20governance_Service%20evaluation/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20evaluation" association="/0/SWIM%20governance_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_Service evaluation" memberEnd="/0/ATM%20service%20provider_Service%20evaluation/@ownedEnd.0 /0/ATM%20service%20provider_Service%20evaluation/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20evaluation" association="/0/ATM%20service%20provider_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_Service evaluation" memberEnd="/0/SWIM_Service%20evaluation/@ownedEnd.0 /0/SWIM_Service%20evaluation/@ownedEnd.1">
+      <ownedEnd type="/0/Service%20evaluation" association="/0/SWIM_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_Service%20evaluation">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_Failure report" memberEnd="/0/SWIM%20governance_Failure%20report/@ownedEnd.0 /0/SWIM%20governance_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/SWIM%20governance_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_Failure report" memberEnd="/0/ATM%20service%20provider_Failure%20report/@ownedEnd.0 /0/ATM%20service%20provider_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/ATM%20service%20provider_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="Service provider_Failure report" memberEnd="/0/Service%20provider_Failure%20report/@ownedEnd.0 /0/Service%20provider_Failure%20report/@ownedEnd.1">
+      <ownedEnd type="/0/Failure%20report" association="/0/Service%20provider_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/Service%20provider" association="/0/Service%20provider_Failure%20report">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM governance_List of services" memberEnd="/0/SWIM%20governance_List%20of%20services/@ownedEnd.0 /0/SWIM%20governance_List%20of%20services/@ownedEnd.1">
+      <ownedEnd type="/0/List%20of%20services" association="/0/SWIM%20governance_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM%20governance" association="/0/SWIM%20governance_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="ATM service provider_List of services" memberEnd="/0/ATM%20service%20provider_List%20of%20services/@ownedEnd.0 /0/ATM%20service%20provider_List%20of%20services/@ownedEnd.1">
+      <ownedEnd type="/0/List%20of%20services" association="/0/ATM%20service%20provider_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/ATM%20service%20provider" association="/0/ATM%20service%20provider_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Association" name="SWIM_List of services" memberEnd="/0/SWIM_List%20of%20services/@ownedEnd.0 /0/SWIM_List%20of%20services/@ownedEnd.1">
+      <ownedEnd type="/0/List%20of%20services" association="/0/SWIM_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="*"/>
+      </ownedEnd>
+      <ownedEnd type="/0/SWIM" association="/0/SWIM_List%20of%20services">
+        <lowerValue xsi:type="uml:LiteralInteger" value="1"/>
+        <upperValue xsi:type="uml:LiteralUnlimitedNatural" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="Service provider_ATM service provider" client="/0/Service%20provider" supplier="/0/ATM%20service%20provider"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance_ATM service provider" client="/0/SWIM%20governance" supplier="/0/ATM%20service%20provider"/>
+    <packagedElement xsi:type="uml:Dependency" name="Service provider_SWIM governance" client="/0/Service%20provider" supplier="/0/SWIM%20governance"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM_Service consumer" client="/0/SWIM" supplier="/0/Service%20consumer"/>
+    <packagedElement xsi:type="uml:Dependency" name="Service consumer_SWIM" client="/0/Service%20consumer" supplier="/0/SWIM"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider_SWIM" client="/0/ATM%20service%20provider" supplier="/0/SWIM"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider_Service provider" client="/0/ATM%20service%20provider" supplier="/0/Service%20provider"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM_ATM service provider" client="/0/SWIM" supplier="/0/ATM%20service%20provider"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM governance-Subsystem">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+      <ownedAttribute type="/0/Service%20provider-Subsystem" association="/0/SWIM%20governance-Subsystem_Service%20provider-Subsystem"/>
+      <ownedAttribute type="/0/SWIM-Subsystem" association="/0/SWIM%20governance-Subsystem_SWIM-Subsystem"/>
+      <ownedAttribute type="/0/Service%20consumer-Subsystem" association="/0/SWIM%20governance-Subsystem_Service%20consumer-Subsystem"/>
+      <deployment client="/0/SWIM%20governance-Subsystem" supplier="/0/SWIM%20governance%20Process_Application" deployedArtifact="/0/SWIM%20governance%20Process_Application"/>
+      <deployment client="/0/SWIM%20governance-Subsystem" supplier="/0/Service%20description_Database" deployedArtifact="/0/Service%20description_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM governance Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="ATM service provider-Subsystem">
+      <deployment client="/0/ATM%20service%20provider-Subsystem" supplier="/0/Pool%205%20Process_Application" deployedArtifact="/0/Pool%205%20Process_Application"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Pool 5 Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Service provider-Subsystem">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/ATM%20service%20provider-Subsystem_Service%20provider-Subsystem"/>
+      <deployment client="/0/Service%20provider-Subsystem" supplier="/0/ATM%20service%20provider%20Process_Application" deployedArtifact="/0/ATM%20service%20provider%20Process_Application"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATM service provider Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM-Subsystem">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/SWIM-Subsystem_ATM%20service%20provider-Subsystem"/>
+      <deployment client="/0/SWIM-Subsystem" supplier="/0/SWIM%20Process_Application" deployedArtifact="/0/SWIM%20Process_Application"/>
+      <deployment client="/0/SWIM-Subsystem" supplier="/0/ID%20service_Database" deployedArtifact="/0/ID%20service_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Service consumer-Subsystem">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/Service%20consumer-Subsystem_ATM%20service%20provider-Subsystem"/>
+      <ownedAttribute type="/0/SWIM-Subsystem" association="/0/Service%20consumer-Subsystem_SWIM-Subsystem"/>
+      <ownedAttribute type="/0/Service%20provider-Subsystem" association="/0/Service%20consumer-Subsystem_Service%20provider-Subsystem"/>
+      <deployment client="/0/Service%20consumer-Subsystem" supplier="/0/Service%20consumer%20Process_Application" deployedArtifact="/0/Service%20consumer%20Process_Application"/>
+      <deployment client="/0/Service%20consumer-Subsystem" supplier="/0/Service%20evaluation_Database" deployedArtifact="/0/Service%20evaluation_Database"/>
+      <deployment client="/0/Service%20consumer-Subsystem" supplier="/0/Failure%20report_Database" deployedArtifact="/0/Failure%20report_Database"/>
+      <deployment client="/0/Service%20consumer-Subsystem" supplier="/0/List%20of%20services_Database" deployedArtifact="/0/List%20of%20services_Database"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Service consumer Process_Application"/>
+    <packagedElement xsi:type="uml:Node" name="Service consumer_Client">
+      <ownedAttribute type="/0/Service%20consumer-Subsystem" association="/0/Service%20consumer_Client_Service%20consumer-Subsystem"/>
+      <deployment client="/0/Service%20consumer_Client" supplier="/0/Service%20consumer_GUI" deployedArtifact="/0/Service%20consumer_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Service consumer_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM_Client">
+      <ownedAttribute type="/0/SWIM-Subsystem" association="/0/SWIM_Client_SWIM-Subsystem"/>
+      <deployment client="/0/SWIM_Client" supplier="/0/SWIM_GUI" deployedArtifact="/0/SWIM_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="Service provider_Client">
+      <ownedAttribute type="/0/Service%20provider-Subsystem" association="/0/Service%20provider_Client_Service%20provider-Subsystem"/>
+      <deployment client="/0/Service%20provider_Client" supplier="/0/Service%20provider_GUI" deployedArtifact="/0/Service%20provider_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="Service provider_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="ATM service provider_Client">
+      <ownedAttribute type="/0/ATM%20service%20provider-Subsystem" association="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+      <deployment client="/0/ATM%20service%20provider_Client" supplier="/0/ATM%20service%20provider_GUI" deployedArtifact="/0/ATM%20service%20provider_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="ATM service provider_GUI"/>
+    <packagedElement xsi:type="uml:Node" name="SWIM governance_Client">
+      <ownedAttribute type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+      <deployment client="/0/SWIM%20governance_Client" supplier="/0/SWIM%20governance_GUI" deployedArtifact="/0/SWIM%20governance_GUI"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Artifact" name="SWIM governance_GUI"/>
+    <packagedElement xsi:type="uml:Artifact" name="Service description_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="ID service_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Service evaluation_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="Failure report_Database"/>
+    <packagedElement xsi:type="uml:Artifact" name="List of services_Database"/>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance_Client_SWIM governance-Subsystem" memberEnd="/0/SWIM%20governance_Client/@ownedAttribute.0 /0/SWIM%20governance_Client_SWIM%20governance-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance_Client" association="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATM service provider_Client_ATM service provider-Subsystem" memberEnd="/0/ATM%20service%20provider_Client/@ownedAttribute.0 /0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/ATM%20service%20provider_Client" association="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Service provider_Client_Service provider-Subsystem" memberEnd="/0/Service%20provider_Client/@ownedAttribute.0 /0/Service%20provider_Client_Service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20provider_Client" association="/0/Service%20provider_Client_Service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM_Client_SWIM-Subsystem" memberEnd="/0/SWIM_Client/@ownedAttribute.0 /0/SWIM_Client_SWIM-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM_Client" association="/0/SWIM_Client_SWIM-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Service consumer_Client_Service consumer-Subsystem" memberEnd="/0/Service%20consumer_Client/@ownedAttribute.0 /0/Service%20consumer_Client_Service%20consumer-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20consumer_Client" association="/0/Service%20consumer_Client_Service%20consumer-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance-Subsystem_ATM service provider-Subsystem" memberEnd="/0/SWIM%20governance-Subsystem/@ownedAttribute.0 /0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance-Subsystem_Service provider-Subsystem" memberEnd="/0/SWIM%20governance-Subsystem/@ownedAttribute.1 /0/SWIM%20governance-Subsystem_Service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance-Subsystem_Service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance-Subsystem_SWIM-Subsystem" memberEnd="/0/SWIM%20governance-Subsystem/@ownedAttribute.2 /0/SWIM%20governance-Subsystem_SWIM-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance-Subsystem_SWIM-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM governance-Subsystem_Service consumer-Subsystem" memberEnd="/0/SWIM%20governance-Subsystem/@ownedAttribute.3 /0/SWIM%20governance-Subsystem_Service%20consumer-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM%20governance-Subsystem" association="/0/SWIM%20governance-Subsystem_Service%20consumer-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="SWIM-Subsystem_ATM service provider-Subsystem" memberEnd="/0/SWIM-Subsystem/@ownedAttribute.0 /0/SWIM-Subsystem_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/SWIM-Subsystem" association="/0/SWIM-Subsystem_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Service consumer-Subsystem_ATM service provider-Subsystem" memberEnd="/0/Service%20consumer-Subsystem/@ownedAttribute.0 /0/Service%20consumer-Subsystem_ATM%20service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20consumer-Subsystem" association="/0/Service%20consumer-Subsystem_ATM%20service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Service consumer-Subsystem_SWIM-Subsystem" memberEnd="/0/Service%20consumer-Subsystem/@ownedAttribute.1 /0/Service%20consumer-Subsystem_SWIM-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20consumer-Subsystem" association="/0/Service%20consumer-Subsystem_SWIM-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="Service consumer-Subsystem_Service provider-Subsystem" memberEnd="/0/Service%20consumer-Subsystem/@ownedAttribute.2 /0/Service%20consumer-Subsystem_Service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20consumer-Subsystem" association="/0/Service%20consumer-Subsystem_Service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:CommunicationPath" name="ATM service provider-Subsystem_Service provider-Subsystem" memberEnd="/0/Service%20provider-Subsystem/@ownedAttribute.0 /0/ATM%20service%20provider-Subsystem_Service%20provider-Subsystem/@ownedEnd.0">
+      <ownedEnd type="/0/Service%20provider-Subsystem" association="/0/ATM%20service%20provider-Subsystem_Service%20provider-Subsystem"/>
+    </packagedElement>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance Process_Application_ATM service provider Process_Application" client="/0/ATM%20service%20provider%20Process_Application" supplier="/0/SWIM%20governance%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 5 Process_Application_SWIM governance Process_Application" client="/0/SWIM%20governance%20Process_Application" supplier="/0/Pool%205%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 5 Process_Application_ATM service provider Process_Application" client="/0/ATM%20service%20provider%20Process_Application" supplier="/0/Pool%205%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Pool 5 Process_Application_SWIM Process_Application" client="/0/SWIM%20Process_Application" supplier="/0/Pool%205%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider Process_Application_Pool 5 Process_Application" client="/0/Pool%205%20Process_Application" supplier="/0/ATM%20service%20provider%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM Process_Application_Pool 5 Process_Application" client="/0/Pool%205%20Process_Application" supplier="/0/SWIM%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM Process_Application_Service consumer Process_Application" client="/0/Service%20consumer%20Process_Application" supplier="/0/SWIM%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Service consumer Process_Application_SWIM Process_Application" client="/0/SWIM%20Process_Application" supplier="/0/Service%20consumer%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM governance_GUI_SWIM governance Process_Application" client="/0/SWIM%20governance_GUI" supplier="/0/SWIM%20governance%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Service provider_GUI_ATM service provider Process_Application" client="/0/Service%20provider_GUI" supplier="/0/ATM%20service%20provider%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="ATM service provider_GUI_Pool 5 Process_Application" client="/0/ATM%20service%20provider_GUI" supplier="/0/Pool%205%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="SWIM_GUI_SWIM Process_Application" client="/0/SWIM_GUI" supplier="/0/SWIM%20Process_Application"/>
+    <packagedElement xsi:type="uml:Dependency" name="Service consumer_GUI_Service consumer Process_Application" client="/0/Service%20consumer_GUI" supplier="/0/Service%20consumer%20Process_Application"/>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_7YaQQAa-EeWwtKn7NAM2pQ"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec.rabac/profile/RABAC.profile.uml#_DhVN4LhMEeSB1MgAxQm9IQ"/>
+    </profileApplication>
+    <profileApplication>
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_C2ZTAE8dEeaXAd2ou1VF_w"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/carisma.profile.umlsec/profile/UMLsec.profile.uml#_kGQWQDnkEeCyb9nmG-9Lpw"/>
+    </profileApplication>
+  </uml:Model>
+  <RABAC:abac roles="{(Subject,SWIM governance),(Subject,ATM service provider),(Subject,Service provider),(Subject,SWIM),(Subject,Service consumer),}" base_Class="/0/RBAC"/>
+  <UMLsec:securedependency base_Package="/0"/>
+  <UMLsec:securelinks adversary="default" base_Package="/0"/>
+  <RABAC:abacRequire right="access_Evaluate trust" base_Operation="/0/SWIM%20governance/Evaluate%20trust"/>
+  <RABAC:abacRequire right="access_Decrease trust" base_Operation="/0/SWIM%20governance/Decrease%20trust"/>
+  <RABAC:abacRequire right="access_Upgrade trust" base_Operation="/0/SWIM%20governance/Upgrade%20trust"/>
+  <RABAC:abacRequire right="access_Request service" base_Operation="/0/ATM%20service%20provider/Request%20service"/>
+  <RABAC:abacRequire right="modify_Failure report , read_Failure report" base_Operation="/0/SWIM%20governance/Sends%20failure%20report"/>
+  <RABAC:abacRequire right="modify_Service evaluation" base_Operation="/0/ATM%20service%20provider/Forward%20evaluation%20information"/>
+  <RABAC:abacRequire right="modify_Service description" base_Operation="/0/Service%20provider/Send%20information%20on%20service"/>
+  <RABAC:abacRequire right="modify_Failure report , read_Failure report" base_Operation="/0/ATM%20service%20provider/Send%20report%20of%20failure"/>
+  <RABAC:abacRequire right="modify_ID service" base_Operation="/0/ATM%20service%20provider/Notify%20choice"/>
+  <RABAC:abacRequire right="modify_Service evaluation" base_Operation="/0/SWIM/Forward%20evaluation"/>
+  <RABAC:abacRequire right="modify_Service description" base_Operation="/0/ATM%20service%20provider/Forward%20service"/>
+  <RABAC:abacRequire right="modify_ID service" base_Operation="/0/SWIM/Forward%20to%20ATM%20service%20provider"/>
+  <RABAC:abacRequire right="modify_List of services" base_Operation="/0/ATM%20service%20provider/Send%20list%20available%20services"/>
+  <RABAC:abacRequire right="modify_Service evaluation" base_Operation="/0/Service%20consumer/send%20evaluation"/>
+  <RABAC:abacRequire right="modify_Service description" base_Operation="/0/SWIM/Forward%20generated%20info"/>
+  <RABAC:abacRequire right="modify_Subsecription service" base_Operation="/0/Service%20consumer/Send%20subscription%20of%20chosen%20service"/>
+  <RABAC:abacRequire right="modify_Failure report , read_Failure report" base_Operation="/0/Service%20consumer/Send%20failure%20report"/>
+  <RABAC:abacRequire right="modify_List of services" base_Operation="/0/SWIM/Forward%20list%20of%20services"/>
+  <UMLsec:secrecy base_Dependency="/0/Service%20provider_SWIM%20governance"/>
+  <UMLsec:secrecy base_Dependency="/0/Service%20provider_ATM%20service%20provider"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM_Service%20consumer"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20provider_SWIM%20governance"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance_ATM%20service%20provider"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider_Service%20provider"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20provider_ATM%20service%20provider"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider_SWIM"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM_ATM%20service%20provider"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM_Service%20consumer"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20consumer_SWIM"/>
+  <UMLsec:call base_Dependency="/0/SWIM_ATM%20service%20provider"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider_Service%20provider"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider_SWIM"/>
+  <UMLsec:call base_Dependency="/0/Service%20consumer_SWIM"/>
+  <UMLsec:call base_Dependency="/0/SWIM_Service%20consumer"/>
+  <UMLsec:call base_Dependency="/0/Service%20provider_SWIM%20governance"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance_ATM%20service%20provider"/>
+  <UMLsec:call base_Dependency="/0/Service%20provider_ATM%20service%20provider"/>
+  <UMLsec:critical base_Class="/0/Service%20provider" base_Classifier="/0/Service%20provider">
+    <secrecy>Sends failure report</secrecy>
+    <secrecy>Send report of failure</secrecy>
+    <integrity>Sends failure report</integrity>
+    <integrity>Send report of failure</integrity>
+    <integrity>Send information on service</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/SWIM" base_Classifier="/0/SWIM">
+    <secrecy>Send failure report</secrecy>
+    <integrity>Forward service</integrity>
+    <integrity>Send list available services</integrity>
+    <integrity>send evaluation</integrity>
+    <integrity>Send subscription of chosen service</integrity>
+    <integrity>Send failure report</integrity>
+    <integrity>Forward to ATM service provider</integrity>
+    <integrity>Forward evaluation</integrity>
+    <integrity>Forward generated info</integrity>
+    <integrity>Forward list of services</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/SWIM%20governance" base_Classifier="/0/SWIM%20governance">
+    <secrecy>Sends failure report</secrecy>
+    <integrity>Forward evaluation information</integrity>
+    <integrity>Notify choice</integrity>
+    <integrity>Sends failure report</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/ATM%20service%20provider" base_Classifier="/0/ATM%20service%20provider">
+    <secrecy>Send report of failure</secrecy>
+    <integrity>Send information on service</integrity>
+    <integrity>Forward to ATM service provider</integrity>
+    <integrity>Forward evaluation</integrity>
+    <integrity>Forward service</integrity>
+    <integrity>Forward evaluation information</integrity>
+    <integrity>Notify choice</integrity>
+    <integrity>Send list available services</integrity>
+    <integrity>Send report of failure</integrity>
+  </UMLsec:critical>
+  <UMLsec:critical base_Class="/0/Service%20consumer" base_Classifier="/0/Service%20consumer">
+    <secrecy>Send failure report</secrecy>
+    <integrity>Forward generated info</integrity>
+    <integrity>Forward list of services</integrity>
+    <integrity>send evaluation</integrity>
+    <integrity>Send subscription of chosen service</integrity>
+    <integrity>Send failure report</integrity>
+  </UMLsec:critical>
+  <UMLsec:Internet base_CommunicationPath="/0/SWIM%20governance-Subsystem_SWIM-Subsystem"/>
+  <UMLsec:Internet base_CommunicationPath="/0/SWIM%20governance-Subsystem_Service%20consumer-Subsystem"/>
+  <UMLsec:Internet base_CommunicationPath="/0/Service%20consumer-Subsystem_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:Internet base_CommunicationPath="/0/Service%20consumer-Subsystem_Service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM%20governance-Subsystem_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM%20governance-Subsystem_Service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATM%20service%20provider-Subsystem_Service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM-Subsystem_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Service%20consumer-Subsystem_SWIM-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM%20governance_Client_SWIM%20governance-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/ATM%20service%20provider_Client_ATM%20service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Service%20provider_Client_Service%20provider-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/SWIM_Client_SWIM-Subsystem"/>
+  <UMLsec:encrypted base_CommunicationPath="/0/Service%20consumer_Client_Service%20consumer-Subsystem"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%205%20Process_Application_SWIM%20governance%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%205%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Pool%205%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider%20Process_Application_Pool%205%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20Process_Application_Pool%205%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20Process_Application_Service%20consumer%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Service%20consumer%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Service%20provider_GUI_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/ATM%20service%20provider_GUI_Pool%205%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/SWIM_GUI_SWIM%20Process_Application"/>
+  <UMLsec:call base_Dependency="/0/Service%20consumer_GUI_Service%20consumer%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Service%20provider_GUI_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM%20governance%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/ATM%20service%20provider_GUI_Pool%205%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Pool%205%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Service%20consumer_GUI_Service%20consumer%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/SWIM_GUI_SWIM%20Process_Application"/>
+  <UMLsec:secrecy base_Dependency="/0/Service%20consumer%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance_GUI_SWIM%20governance%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20provider_GUI_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20governance%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider_GUI_Pool%205%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%205%20Process_Application_SWIM%20governance%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/ATM%20service%20provider%20Process_Application_Pool%205%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%205%20Process_Application_ATM%20service%20provider%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM_GUI_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20Process_Application_Pool%205%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Pool%205%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20consumer_GUI_Service%20consumer%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/Service%20consumer%20Process_Application_SWIM%20Process_Application"/>
+  <UMLsec:integrity base_Dependency="/0/SWIM%20Process_Application_Service%20consumer%20Process_Application"/>
+</xmi:XMI>
